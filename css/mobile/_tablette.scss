@@ -444,5 +444,11 @@
         margin-right: 30px;
     }
 
+	image-select{
+	    & > div > img{
+	        border-radius: 50%;
+	    }
+
+	}
 // end tablettes
 }
