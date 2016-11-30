@@ -1071,6 +1071,28 @@ i.ticketinfo::before {
     text-align: center;
 }
 
+i.move::before, i.drag::before{
+  content: '\e847';
+}
+
+i.add-page::before {
+    content: "\e908";
+    font-size: 20px;
+    display: block;
+}
+
+i.grid::before {
+    content: "\e90b";
+}
+
+i.visible::before{
+    content: "\e873";
+}
+
 i.copy::before, i.duplicate::before {
     content: '\e820';
+}
+
+i.hidden::before {
+    content: "\e9d1";
 }
