@@ -987,10 +987,10 @@ i.eye-slash:before, i.discard:before{
 }
 .info-pic{
   @include fonticon;
+  font-size: 15px;
 }
 .info-pic:before{
   content: '\e8bb';
-  font-size: 15px;
 }
 .trash{
   @include fonticon;

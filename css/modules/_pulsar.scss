@@ -1,0 +1,185 @@
+$sizePulsar: 30px;
+$sizeWave: 46px;
+$stroke: 5px;
+$pulsedelay: 0.3s;
+$pulseanim: 1s;
+
+
+
+.pulsar {
+    cursor: pointer;
+    width: $sizePulsar;
+    position: absolute;
+    z-index: 999999 ;
+    top: -90px;
+    right: 164px;
+    @include run-transition(all);
+    transform: scale(1);
+}
+.opened .pulsar {
+    transform: scale(0);
+}
+.pulsar i {
+    display: block;
+    color: $white;
+    background: $accent;
+    border-radius: 50%;
+    height: $sizePulsar;
+    width: $sizePulsar;
+    text-align: center;
+    line-height: ($sizePulsar - 2);
+    text-indent: -2;
+    font-size: 14px;
+    @include run-transition(all);
+}
+.pulsar:hover i {
+    //transform: scale(1.25);
+}
+.pulse,
+.pulse2 {
+    height: $sizeWave;
+    width: $sizeWave;
+    position: absolute;
+    z-index: -1;
+    top: -($sizeWave/2 - $sizePulsar/2);
+    left: -($sizeWave/2 - $sizePulsar/2);
+
+    //.pulsar:hover &:after {
+    .pulsar &:after {
+        transform: scale(0.1, 0.1);
+        content: "";
+        border-radius: 50%;
+        height: $sizeWave;
+        width: $sizeWave;
+        position: absolute;
+        left: 0;
+        top: 0;
+        box-shadow: 0 0 5px $stroke $primary-light;
+        //
+        animation: pulsate $pulseanim ease-out;
+        animation-iteration-count: infinite;
+        opacity: 0.5;
+    }
+}
+//.pulsar:hover .pulse2:after {
+.pulsar .pulse2:after {
+    //
+    animation: pulsate $pulseanim ease-out;
+    animation-iteration-count: infinite;
+    animation-delay: $pulsedelay;
+}
+@keyframes pulsate {
+    0% {
+        transform: scale(0.1, 0.1);
+        opacity: 0.0;
+    }
+    50% {
+        opacity: 1.0;
+    }
+    100% {
+        transform: scale(1.2, 1.2);
+        opacity: 0;
+    }
+}
+
+.pulsarbox{
+    box-sizing: border-box;
+    position: absolute;
+    top: -73px;
+    right: 15px;
+    padding: 0 40px 25px;
+    box-shadow: 1px 2px 3px 2px $shadow;
+    border-radius: 2px;
+    background: $white;
+    width: 327px;
+    z-index: 999999;
+    @include run-transition(all, 300ms);
+    transform-origin: top center;
+    transform: scale(0);
+
+    i.arrow{
+        display: block;
+        box-sizing: border-box;
+        margin-top: -20px;
+        height: 20px;
+        padding-top: 4px;
+        text-shadow: 0px -1px 1px $shadow;
+    }
+    header{
+        height: 40px;
+        i{
+            position: absolute;
+        }
+        i.info-pic{
+            color: $white;
+            background: $accent;
+            left: 15px;
+            top: 15px;
+            border-radius: 50px;
+            display: block;
+            width: 20px;
+            height: 20px;
+            font-size: 11px;
+            line-height: 20px;
+            text-align: center;
+            text-indent: -1px;
+        }
+        i.close{
+            top: 10px;
+            right: 15px;
+        }
+
+    }
+    .content{
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+    .bullet-points{
+        padding: 10px;
+        text-align: center;
+
+        .dot{
+            cursor: pointer;
+            border-radius: 50%;
+            margin: 5px;
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            border: 2px solid $solid-grey;
+            background: $white;
+            @include run-transition(all);
+        }
+        .dot:hover, .dot.active{
+            border: 2px solid $primary;
+            background: $primary;
+        }
+    }
+    footer{
+        text-align: right;
+        margin-top: 20px;
+        button{
+            display: inline-block;
+            float: none;
+        }
+    }
+}
+.opened + .pulsarbox{
+    transform: scale(1);
+}
+
+.mask {
+    position: absolute;
+    z-index: 999998;
+    right: 156px;
+    top: -132px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    transform: scale(0);
+    box-shadow: 0 0 0 99999px transparent;
+    @include run-transition(all, 800ms);
+}
+.opened.mask {
+    transform: scale(1);
+    box-shadow: 0 0 0 99999px $shadow-darker;
+}
