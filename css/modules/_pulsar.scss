@@ -32,8 +32,8 @@ $pulseanim: 1s;
     font-size: 14px;
     @include run-transition(all);
 }
-.pulsar:hover i {
-    //transform: scale(1.25);
+.pulsar:hover{
+    transform: scale(1.25);
 }
 .pulse,
 .pulse2 {
