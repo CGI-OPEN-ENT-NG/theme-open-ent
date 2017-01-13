@@ -17,25 +17,9 @@
             font-size: 32px;
         }
 
-        i.sound::before {
-            content: '\e839';
-        }
-
-        i.image::before {
-            content: '\e84a';
-        }
-
-        i.text::before {
-            content: '\e909';
-        }
-
         &:hover {
             box-shadow: none;
             color: $accent;
-        }
-
-        .workspace.carousel::before {
-            content: "\e90a";
         }
     }
 }

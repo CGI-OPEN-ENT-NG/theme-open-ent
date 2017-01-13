@@ -801,9 +801,6 @@ i.dotsx3:before{
 	  text-align: left;
 	  color: black;
 	}
-  	i.grid:before {
-	  content: '\e801';
-	}
 
 	i.sniplet{
 	  font-size: 26px;
@@ -1075,14 +1072,14 @@ i.move::before, i.drag::before{
   content: '\e847';
 }
 
-i.add-page::before {
-    content: "\e908";
-    font-size: 20px;
-    display: block;
+i.grid {
+    content: '\e90c';
 }
 
-i.grid::before {
+i.add-page::before {
     content: "\e90b";
+    font-size: 20px;
+    display: block;
 }
 
 i.visible::before{
@@ -1095,4 +1092,30 @@ i.copy::before, i.duplicate::before {
 
 i.hidden::before {
     content: "\e9d1";
+}
+
+.sniplet {
+    .carousel.workspace::before {
+        content: '\e90d';
+    }
+
+    .navigation.pages::before {
+        content: '\e84f';
+    }
+
+    .text::before {
+        content: 'T';
+    }
+
+    i.sound::before {
+        content: '\e839';
+    }
+
+    i.image::before {
+        content: '\e84a';
+    }
+}
+
+i.grid::before {
+    content: '\e90c';
 }
