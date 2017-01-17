@@ -30,12 +30,22 @@
 
 .edit grid-cell {
     margin-top: 10px;
-    cursor: initial;
+    cursor: move;
+
+    .color-picker {
+        display: none;
+    }
 
     &.dragover {
         border-color: $accent !important;
-        border-width: 4px !important;
+        border-width: 2px !important;
         border-style: dashed !important;
+    }
+
+    image-select {
+        img {
+            border: none;
+        }
     }
 
     editor.both, editor.html, editor.edit {
@@ -48,68 +58,19 @@
             min-height: 200px;
         }
 
+        textarea {
+            min-height: 200px;
+        }
+
         editor-toolbar {
             position: fixed;
         }
     }
 
-    .header {
-        cursor: move;
-        position: absolute;
-        bottom: 100%;
-        left: -1px;
-        width: 100%;
-        height: 0;
-        background-color: $primary;
-        padding-right: 1px;
-        color: #fff;
-        text-align: right;
-        transition: height 230ms ease;
-        overflow: hidden;
-        z-index: 10;
-
-        i {
-            vertical-align: top;
-            font-size: 21px;
-            line-height: 30px;
-            margin: 2px;
-            transition: color 250ms ease;
-
-            &:hover {
-                color: $accent;
-            }
-
-            &.duplicate {
-                line-height: 36px;
-            }
-        }
-
-        i.remove::before {
-            content: '\e8cf';
-        }
-
-        input[type=color] {
-            cursor: inherit;
-            border: none;
-            background: none;
-            padding: 0;
-            height: 35px;
-            opacity: 0.7;
-            vertical-align: top;
-            margin-right: 5px;
-            transition: opacity 250ms ease;
-
-            &:hover {
-                opacity: 1;
-            }
-        }
-    }
-
     &:hover {
-        .header {
-            height: 35px;
-            border: 1px solid #ccc;
-        }
+        border-color: #ccc !important;
+        border-width: 2px !important;
+        border-style: dashed !important;
     }
 
     &.drag-over:hover {
@@ -130,6 +91,9 @@
     audio {
         position: relative;
         max-width: 90%;
+        margin: 0;
+        left: 0;
+        top: 0;
     }
 }
 
@@ -169,6 +133,7 @@ body grid-cell editor {
 
             > popover {
                 opacity: 1;
+                pointer-events: all;
             }
         }
 
@@ -178,6 +143,7 @@ body grid-cell editor {
             right: 36px;
             opacity: 0;
             transition: opacity 250ms ease;
+            pointer-events: none;
         }
     }
 }
@@ -185,10 +151,6 @@ body grid-cell editor {
 drawing-grid {
     display: block;
     transition: margin 250ms ease;
-
-    grid-cell.drag-over {
-        border: 3px dashed $accent;
-    }
 }
 
 .toggle .info {
@@ -216,7 +178,7 @@ grid-cell .help {
     transition: opacity 250ms ease;
     height: 185px;
     box-sizing: border-box;
-    padding: 15px;
+    padding: 17px;
     a{
         opacity: 0.5;
     }
@@ -232,6 +194,44 @@ grid-cell .help {
     image-select > div::before {
         left: 0;
     }
+
+    dots-menu {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background: rgba(200,200,200,0.5);
+        border-radius: 15px;
+        height: 34px;
+        padding-top: 10px;
+        transition: background 250ms ease;
+        width: 20px;
+
+        &:hover {
+            background: rgba(220,220,220,.5);
+
+            .opener {
+                color: $accent;
+            }
+        }
+
+        &.opened {
+            background: none;
+        }
+
+        .opener {
+            font-size: 20px;
+            color: #666;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            padding-top: 9px;
+        }
+
+        .options {
+            margin-right: 3px;
+        }
+    }
 }
 
 .view grid-cell {
@@ -242,9 +242,16 @@ grid-cell .help {
 }
 
 grid-cell {
+    &.height-undefined, &.height-zero{
+        min-height: 200px;
+        height: auto;
+    }
     .text-wrapper {
-        border-radius: 3px;
-        padding: 10px;
+        height: 100%;
+        editor{
+            height: 100%;
+            min-height: 100%;
+        }
     }
 }
 
@@ -420,6 +427,66 @@ grid-cell {
             display: block;
             color: $primary;
             padding: 15px;
+        }
+    }
+}
+
+css-editor {
+    .preview {
+        width: 30%;
+        float: left;
+        position: relative;
+        padding-right: 10px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+
+        .preview-content {
+            background: #efefef;
+            padding: 18px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            margin-top: -10px;
+        }
+    }
+
+    .css-editor {
+        float: left;
+        width: 70%;
+        position: relative;
+
+        pre code {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+            background-color: transparent;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+            border: 1px solid transparent;
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-size: 16px;
+        }
+
+        textarea {
+            position: absolute;
+            top: 0;
+            left: 0;
+            float: left;
+            box-sizing: border-box;
+            transition: width 250ms ease;
+            margin: 0;
+            line-height: 1.5em;
+            font-family: monospace;
+            tab-size: 4;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            white-space: pre-wrap;
+            word-break: break-word;
+            min-height: 333px;
         }
     }
 }
