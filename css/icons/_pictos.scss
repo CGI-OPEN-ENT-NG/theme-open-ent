@@ -1082,3 +1082,20 @@ i.refresh {
     content : '\e874';
   }
 }
+
+i.sort-asc {
+  @include fonticon;
+
+  &::before {
+    content : '\e924';
+  }
+}
+
+i.sort-desc {
+  @include fonticon;
+
+  &::before {
+    content : '\e925';
+  }
+}
+

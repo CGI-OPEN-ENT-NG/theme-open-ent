@@ -417,7 +417,7 @@ body.presences {
       }
       .abscSM-content--SM-list--item{
         @include transition(all 0.4ms ease);
-        text-align: center;
+        //text-align: center;
 
         &:nth-child(even){
 
