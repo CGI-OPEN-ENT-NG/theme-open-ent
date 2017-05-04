@@ -294,6 +294,12 @@ body.presences {
     &.opened{
       height: 5%;
       max-height: 350px;
+      .plus-input{
+        &::after{
+          font-family: "FontAwesome";
+          content: "\f068";
+        }
+      }
     }
 
     > h4{
@@ -307,7 +313,6 @@ body.presences {
         position: absolute;
         cursor: pointer;
         right: 10px;
-        top: 5px;
       }
     }
 
