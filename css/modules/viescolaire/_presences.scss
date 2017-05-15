@@ -94,6 +94,11 @@ body.presences {
     height: 30px;
     display: inline-block;
     position: relative;
+    @include fonticon;
+
+    &:before {
+      content: '\f017';
+    }
   }
 
   .retard-color-icon {
