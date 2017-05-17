@@ -1099,3 +1099,6 @@ i.sort-desc {
   }
 }
 
+i.clock::before {
+  content: '\f017';
+}
