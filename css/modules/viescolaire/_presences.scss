@@ -295,16 +295,25 @@ body.presences {
       }
     }
 
-    &.opened{
-      height: 5%;
-      max-height: 350px;
-      .plus-input{
-        &::after{
-          font-family: "FontAwesome";
-          content: "\f068";
+    .expandable{
+      &:nth-child(2n){
+        background-color: rgba(0,0,0,0.05);
+      }
+      &.opened{
+        .plus-input{
+          &::after{
+            font-family: "FontAwesome";
+            content: "\f068";
+          }
+        }
+      }
+      &.cell{
+        &:hover{
+          background-color: rgba(0,0,0,0.05);
         }
       }
     }
+
 
     > h4{
       margin: 0 0 2px 0;
