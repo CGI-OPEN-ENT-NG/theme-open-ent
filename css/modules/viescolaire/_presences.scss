@@ -295,25 +295,32 @@ body.presences {
       }
     }
 
-    .expandable{
-      &:nth-child(2n){
-        background-color: rgba(0,0,0,0.05);
+    .plus-input{
+      right: 5px;
+      position: absolute;
+      top: 11px;
+      @include fonticon;
+      &::after{
+        content: "\e87b";
+        font-size: 15px;
+        color: $grey;
+        font-weight: 300;
+        opacity: 0.8;
+        cursor: pointer;
+        border: none;
+        background-color: inherit;
+        font-size: 10px;
       }
-      &.opened{
-        .plus-input{
-          &::after{
-            font-family: "FontAwesome";
-            content: "\f068";
-          }
-        }
-      }
-      &.cell{
-        &:hover{
-          background-color: rgba(0,0,0,0.05);
-        }
+      &:hover::after{
+        color: $cyan;
       }
     }
 
+    &.opened {
+      .plus-input::after{
+        content: "\e841";
+      }
+    }
 
     > h4{
       margin: 0 0 2px 0;
