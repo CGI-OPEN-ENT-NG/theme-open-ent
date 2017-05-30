@@ -295,30 +295,14 @@ body.presences {
       }
     }
 
-    .plus-input{
-      right: 5px;
-      position: absolute;
-      top: 11px;
-      @include fonticon;
-      &::after{
-        content: "\e87b";
-        font-size: 15px;
-        color: $grey;
-        font-weight: 300;
-        opacity: 0.8;
-        cursor: pointer;
-        border: none;
-        background-color: inherit;
-        font-size: 10px;
-      }
-      &:hover::after{
-        color: $cyan;
-      }
-    }
-
-    &.opened {
-      .plus-input::after{
-        content: "\e841";
+    &.opened{
+      height: 5%;
+      max-height: 350px;
+      .plus-input{
+        &::after{
+          font-family: "FontAwesome";
+          content: "\f068";
+        }
       }
     }
 

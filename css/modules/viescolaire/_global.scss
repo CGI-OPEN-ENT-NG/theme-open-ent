@@ -255,6 +255,9 @@ body.vsco--global {
   }
   .list-view-cgi {
     height: 100%;
+    h2 {
+      display: inline-block;
+    }
   }
   .list-view-cgi__grille {
     font-size: 12px !important;
