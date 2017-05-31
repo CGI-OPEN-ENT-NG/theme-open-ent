@@ -144,6 +144,14 @@ i.home-large::before, i.type.home::before, i.home::before{
   content: '\e82b';
 }
 
+i.phone-large, i.phone.cas, i.phone {
+  @include fonticon;
+}
+
+i.phone-large::before, i.type.phone::before, i.phone::before {
+  content: '\f095';
+}
+
 i.apps-large, i.apps.cas, i.apps{
   @include fonticon;
 }

@@ -297,20 +297,41 @@ body.presences {
       &.opened {
         max-height: none;
       }
+
+      i {
+        margin: 10px;
+        display: inline;
+      }
     }
 
     .accordions .toggle {
       height: auto;
     }
 
-    &.opened{
+    &.opened {
       height: 5%;
       max-height: 350px;
-      .plus-input{
-        &::after{
-          font-family: "FontAwesome";
-          content: "\f068";
-        }
+      .plus-input::after {
+        content: "\e841";
+      }
+    }
+
+    .plus-input {
+      right: 0px;
+      position: absolute;
+      bottom: 2px;
+      @include fonticon;
+      &::after {
+        content: "\e87b";
+        color: $grey;
+        font-weight: 300;
+        opacity: 0.8;
+        cursor: pointer;
+        border: none;
+        background-color: inherit;
+      }
+      &:hover::after {
+        color: $cyan;
       }
     }
 
