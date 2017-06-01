@@ -199,6 +199,34 @@ body.presences {
     margin-left: 15px;
   }
 
+  i.show-vue-eleves{
+    @include fonticon;
+    font-size: 24px;
+    opacity: 0.2;
+
+    &::after{
+      content:"\e8b5";
+    }
+
+    &.selected{
+      opacity: 0.6;
+    }
+  }
+
+  i.show-vue-classes{
+    @include fonticon;
+    font-size: 24px;
+    opacity: 0.2;
+
+    &::after{
+      content:"\e8bc";
+    }
+
+    &.selected{
+      opacity: 0.6;
+    }
+  }
+
   /**
     $CPE-PAGE-ACCUEIL
   **/
