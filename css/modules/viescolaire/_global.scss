@@ -33,6 +33,9 @@ body.vsco--global {
   .padd-left {
     padding-left: 8.33333%;
   }
+  span.text-white {
+    color: #fff;
+  }
   .box-accueil {
     @include border-radius(5px);
     background-color: $white;
