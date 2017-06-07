@@ -304,7 +304,6 @@ body.presences {
     }
   }
 
-
   /**
     $CPE-FILTRES
   **/
@@ -331,13 +330,20 @@ body.presences {
       }
 
       &.opened {
-        max-height: none;
+        max-height: 500px;
       }
 
       i {
         margin: 10px 10px 10px 0px;
         display: inline;
       }
+    }
+
+    .plus-input::after {
+      content: "\e87b";
+      position: absolute;
+      top: -9px;
+      right: 0px;
     }
 
     .accordions .toggle {
@@ -349,27 +355,9 @@ body.presences {
     &.opened {
       height: 5%;
       max-height: 350px;
+
       .plus-input::after {
         content: "\e841";
-      }
-    }
-
-    .plus-input {
-      right: 0px;
-      position: absolute;
-      bottom: 2px;
-      @include fonticon;
-      &::after {
-        content: "\e87b";
-        color: $grey;
-        font-weight: 300;
-        opacity: 0.8;
-        cursor: pointer;
-        border: none;
-        background-color: inherit;
-      }
-      &:hover::after {
-        color: $cyan;
       }
     }
 
@@ -379,16 +367,10 @@ body.presences {
       font-weight: 300;
       position: relative;
       line-height: 23px;
-
-      > span{
-        position: absolute;
-        cursor: pointer;
-        right: 10px;
-      }
     }
 
     .selectable-list{
-      max-height: 250px;
+      max-height: 200px;
       overflow-y: scroll;
       margin: 0;
 
@@ -514,9 +496,23 @@ body.presences {
           border-top: solid 1px $light-grey;
           background-color: $white;
 
+          .expand {
+            font-size: 30px;
+            color: $grey;
+            font-weight: 400;
+            opacity: 0.8;
+            border: none;
+            background-color: inherit;
+            left: 40px;
+            &:hover {
+              color: $cyan;
+            }
+          }
+
           &.displayed{
             border-bottom: solid 1px $light-grey;
           }
+
           div{
 
             &:last-child{
@@ -574,6 +570,7 @@ body.presences {
           font-size: 13px;
           border-left: none;
           text-indent: 5px;
+          vertical-align: middle;
 
           select{
             margin-bottom: 0px;
