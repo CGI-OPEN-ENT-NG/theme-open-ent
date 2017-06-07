@@ -24,6 +24,15 @@ body.vsco--global {
       }
     }
   }
+  .text-left {
+    text-align: left!important;
+  }
+  .textIndent {
+    text-indent: 2.5%;
+  }
+  .padd-left {
+    padding-left: 8.33333%;
+  }
   .box-accueil {
     @include border-radius(5px);
     background-color: $white;
