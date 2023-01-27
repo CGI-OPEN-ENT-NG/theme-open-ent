@@ -109,7 +109,6 @@ doInit () {
     sed -i "s/%license%/NONE/" package.json
       rm -f README.md
       rm -f LICENSE
-    break
   fi
 
   echo "[init$1][$OVERRIDE_NAME] Install pnpm dependencies..."
